@@ -24,13 +24,33 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-
-
-//#warning we should check, std::vector and handmade list (class * next) times
 #include <vector>
 
 #include <jabberoo.hh>
 #include <judo.hpp>
+
+#ifdef I_WANNA_SEE_WARNINGS
+#warning TODO: check, std::vector and handmade list (class{class * next};) times
+#warning TODO: parse group file
+#warning TODO: repair cLog;
+#warning TODO: put pointers to thelp instead of  5 * this same thelp :/
+#warning TODO: wtf?!? wit set_presence?!? maybe memtest86? 
+#endif
+
+//----ENUMS----
+
+#define ctCHAT 0
+#define ctMESSAGE 1
+
+#define stUNAVAILABLE 0
+#define stDND 1
+#define stAWAY 2
+#define stXD 3
+#define stAVAILABLE 4
+
+//----ENUMS----
+
+
 
 using namespace std;
 using namespace jabberoo;
@@ -93,21 +113,23 @@ class cBot
 	int close();
 	int send_message(int,string, string);
 	int get_messages();     
-	int set_status(int, string);
+	void set_presence(int, string);
 	void die();	
-	
+	void cBot::die(string);
 	void do_command(string, string, string);
  		
    	void read_config(string);
+	
        
    private:
    
    protected:
-     void cBot::parse_status(int, int, char *, int);   
+     void parse_status(int, int, char *, int);   
 	void status(string, string); 
 	void say(string, string); 	
+	void parse_presence(string, string); 	
 	void say_to(string, string); 	
-	void cBot::say_to_all(string, string);
+	void say_to_all(string, string);
 	int get_group(string);
 	thelp get_gelp(int,string);
    	bool check_command(int,string);

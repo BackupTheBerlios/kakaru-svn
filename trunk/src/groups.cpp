@@ -18,7 +18,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
- 
+
 #include <kakaru.h> 
 #include <jabberoo.hh>
 #include <judo.hpp>
@@ -31,7 +31,6 @@ using namespace judo;
 
 void cBot::read_groups(string path)
 {
-	// TODO parse groups file
 	
 	groups = new tgroup[5];
 	
@@ -77,7 +76,7 @@ void cBot::add_help(int id, string name, string syntax, string body)
 	add_help.body=body;
 
 	
-// #warning we should put pointers to thelp, not 5 * this same help 		
+
 	for(int i=0; i<=id; i++)
 	{
 		groups[i].helps.push_back(add_help);

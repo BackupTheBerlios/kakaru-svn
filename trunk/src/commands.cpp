@@ -18,9 +18,12 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+
 #include <kakaru.h>
 
- 
+
+
+
 string cBot::timestamp()
 {
 	string result;
@@ -32,7 +35,10 @@ string cBot::timestamp()
  
 void cBot::status(string who, string params)
 {
- 
+	for(int i=0; i<status_lines; i++) 
+	{
+		send_message(ctCHAT,who,_status[i]);
+	}
  
  
 }
@@ -51,14 +57,11 @@ void cBot::do_command(string who, string command, string params)
 	if(command == "status") 					status(who,params);		else
      if(command == "say")					say(who,params);		else
 	if(command == "say_to")					say_to(who,params);		else	
-	if(command == "say_to_all")				say_to_all(who,params);		/*else		
-	if(command == "exit")					server=val;		else
-	if(command == "set_status")				default_presence_status=val;
-
-*/
-
-};
- 
+	if(command == "say_to_all")				say_to_all(who,params);		else		
+	if(command == "exit")					die("Exited ('/exit') by "+who);		else
+	if(command == "set_presence")				parse_presence(who,params);
+										
+} 
 //-----------------------------------------------------------------------------------------------------
 
 void cBot::say_to(string who, string params)
@@ -70,7 +73,7 @@ void cBot::say_to(string who, string params)
 	while(params[i] != ' ')
 	{
 		group+=params[i];
-		params.erase(i);
+		params.erase(0);
 		i++;	
 	}
 	
@@ -99,7 +102,7 @@ void cBot::say_to_all(string who, string params)
 	while(params[i] != ' ')
 	{
 		group+=params[i];
-		params.erase(i);
+		params.erase(0);
 		i++;	
 	}
 	
@@ -140,5 +143,25 @@ void cBot::say_to_all(string who, string params)
 
 //-----------------------------------------------------------------------------------------------------
 
+void cBot::parse_presence(string who, string params)
+{     
+	int size=params.size();
+	string tmp;
+	tmp="";
+	for(int i=0;i<size;i++)
+	{
+		if(params[i]!=' ') 
+		{
+			tmp=+params[i]; 
+			params.erase(0);
+		}
+		else break;
+	}
+	set_presence(atoi(tmp.c_str()),params);
 
+	//log << "Presence set to " << params << "( "<< tmp << " )" << G;
 
+}
+
+//-----------------------------------------------------------------------------------------------------
+ 
