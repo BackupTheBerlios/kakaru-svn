@@ -24,7 +24,7 @@ currently there is only kakaru.config files, so you must edit sources to change 
 
 groups 		-> groups, rights, help, bot ovner
 commands.cpp 	-> commands
-bot.cpp 		-> resource name
+bot.cpp 	-> resource name
 
 oh if you wanna try working bot, add Agatka (agatka@jabber.autocom.pl) to you roster.
 
