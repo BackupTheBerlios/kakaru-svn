@@ -1,0 +1,55 @@
+Kakaru - Jabber Bot written in C++
+0.01 - build [20041226]
+
+greets all
+
+if u can help me, just tell: 
+
+
+--------------------
+mail: senu@o2.pl
+JID: senu@chrome.pl
+---------------------
+
+
+i am pure object oriented programmer, so if sth is wrong, just tell...
+
+QUESTIONS/BUGS/FEATURES:
+if you wanna fast response, send me message by jabber. 
+
+i ve tried to make class/variables/files names understandable, so i think 
+you dont need any documentation :P
+ 
+currently there is only kakaru.config files, so you must edit sources to change sth.
+
+groups 		-> groups, rights, help, bot ovner
+commands.cpp 	-> commands
+bot.cpp 		-> resource name
+
+oh if you wanna try working bot, add Agatka (agatka@jabber.autocom.pl) to you roster.
+
+btw. small poll:
+do you REALLY, REALLY, need abilty to add own commands, without editing commands.cpp?
+well i can write small parser (eg. 
+
+[commands.config]
+
+COMMAND_ADD(3,"spam","/spam group","spams group")
+{
+
+	FOR $i=1 to 10 
+	{ 
+		SEND_TO_ALL($param0,"blah, blah, foo, bar")
+		ADD_TO_LOG(NORMAL,"i spammed $_GROUP_NAME($param0)");
+	} 
+	DISCONNECT() 
+}
+
+
+)
+
+but it will take too much code_time, and it will slow down Kakaru, so i need many requests to implement that parser. anyway you can request feature, if it is easy, you will get that in few hours.
+
+btw send me yours bot_commands if you ve write any.
+
+senu

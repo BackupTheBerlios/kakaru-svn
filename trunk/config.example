@@ -1,0 +1,55 @@
+#move me to ${HOME}/.kakaru/kakaru.config
+
+#bot's 'real' name
+realname="Agatka"
+
+# bot's JID (only prefix) eg. agatka, not agatka@chrome.pl
+jid="mybotname"
+
+# bot's server
+server="chrome.pl"
+
+# bot's password
+password="mysecretpass"
+
+# bot's owner JID (your JID)
+owner="senu@chrome.pl"
+
+#bot status after connect()
+default_presence_status="Kakaru Bot is ready"
+
+# status template. integers means lines
+#
+# small man:
+#
+# each status line must fit in one line 
+# variables begins with $
+# special characters (",%,$,\) replace with \", \%, \$, \\
+#
+# LIST OF VARIABLES :
+#
+# $uptime 			- how long is bot connected to server
+# $last_reload_date 	- guess
+# $last_reload_by_who	- guess
+# $version			- bot version
+# $tiredness 			- bot percent of tiredness (bot is tired when nothing is happen)   
+# $last_action 		- last action before "/status"
+# $last_action_not_me	- last not yours action
+# $name				- not jid. 'real' name
+# $jid 				- bot's JID (with @*)
+# $groups_number		- guess
+# $groups_names		- eg. result: [ General: 1 ] [ Commanders: 3 ] [ xx: n ]
+# $owner 				- guess
+# $aval_commands		- number of available commands
+# $auth_type			- is connection encrypted (Plain/SSL)
+# $my_pgp				- bot's PGP
+# $date 				- current date
+# $warnings 			- number of warnings
+# $errors				- number of errors
+# $features			- when kakaru-0.05 will be relased, there will be (i hope) _many_, different features
+#					- eg. result: [ status - v0.05 ( on ) ] [ rss_notifier - v0.02 ( off ) ] [ fortune - v0.03 ] 
+							    [ phpbb-notifier - v0.01 ( on ) ]
+# $todays_actions_in	- number of command typed by user
+# $todays_actions_out	- number of messages sent by bot
+
+status.0=""
